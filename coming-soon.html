@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeoVista Global — Coming Soon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;1,400;1,500&family=Work+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,701&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E1F2E; --ink-2:#122A3D; --paper:#F4EFE4; --paper-dim:#9FB0BA;
+    --gold:#D9A441; --rust:#B8551E; --sea:#5C9C93;
+    --line:rgba(244,239,228,0.14); --line-strong:rgba(244,239,228,0.28);
+    --ease:cubic-bezier(.19,1,.22,1);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ height:100%; }
+  body{
+    background:var(--ink); color:var(--paper);
+    font-family:'Work Sans',sans-serif; -webkit-font-smoothing:antialiased;
+    display:flex; align-items:center; justify-content:center;
+    min-height:100vh; overflow:hidden; position:relative;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; }
+  }
+
+  /* background route map, faint */
+  .bg-routes{ position:fixed; inset:0; width:100%; height:100%; opacity:.16; z-index:0; }
+  .bg-line{ stroke-dasharray:6 8; animation:dash 5s linear infinite; }
+  @keyframes dash{ to{ stroke-dashoffset:-320; } }
+  .bg-dot{ animation:pulse 3s ease-in-out infinite; transform-origin:center; }
+  @keyframes pulse{ 0%,100%{ opacity:.4; transform:scale(1);} 50%{ opacity:1; transform:scale(1.3);} }
+
+  .content{
+    position:relative; z-index:1;
+    display:flex; flex-direction:column; align-items:center;
+    text-align:center; padding:40px 24px; max-width:640px;
+    animation:riseIn 1s var(--ease) both;
+  }
+  @keyframes riseIn{ from{ opacity:0; transform:translateY(16px);} to{ opacity:1; transform:translateY(0);} }
+
+  .seal-wrap{ position:relative; width:96px; height:96px; margin-bottom:8px; }
+  .seal-wrap svg{ width:100%; height:100%; }
+  .seal-ring{ animation:spin 40s linear infinite; transform-origin:60px 60px; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  .wordmark{ font-family:'Fraunces',serif; font-style:italic; font-weight:500; font-size:clamp(26px,4vw,34px); margin-top:22px; }
+  .sub-tag{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.2em; color:var(--sea); margin-top:8px; text-transform:uppercase; }
+
+  .divider{ width:34px; height:1px; background:var(--line-strong); margin:34px 0; }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--gold); display:flex; align-items:center; gap:10px; justify-content:center;
+  }
+  .eyebrow::before, .eyebrow::after{ content:""; width:20px; height:1px; background:var(--gold); display:inline-block; }
+
+  h1{
+    font-family:'Fraunces',serif; font-weight:500; font-style:italic;
+    font-size:clamp(36px,6vw,64px); line-height:1.05; margin-top:18px;
+  }
+  p.lede{
+    font-size:15.5px; color:var(--paper-dim); max-width:440px;
+    margin:18px auto 0; line-height:1.65;
+  }
+
+  .status-row{
+    display:flex; align-items:center; gap:10px; justify-content:center;
+    margin-top:40px; font-family:'IBM Plex Mono',monospace; font-size:11px;
+    letter-spacing:.06em; color:var(--paper-dim);
+  }
+  .status-dot{ width:6px; height:6px; border-radius:50%; background:var(--sea); animation:pulse 2s ease-in-out infinite; }
+
+  .footer-mono{
+    position:absolute; bottom:28px; left:0; right:0; text-align:center;
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em;
+    color:rgba(244,239,228,.35); z-index:1;
+  }
+
+  @media (max-width:480px){
+    .content{ padding:32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<svg class="bg-routes" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="220" cy="420" r="3" fill="#D9A441" class="bg-dot"/>
+  <circle cx="480" cy="160" r="3" fill="#5C9C93" class="bg-dot" style="animation-delay:.8s"/>
+  <circle cx="120" cy="120" r="3" fill="#5C9C93" class="bg-dot" style="animation-delay:1.6s"/>
+  <circle cx="650" cy="460" r="3" fill="#D9A441" class="bg-dot" style="animation-delay:2.2s"/>
+  <path d="M220 420 C320 330, 400 240, 480 160" stroke="#D9A441" stroke-width="1" class="bg-line" fill="none"/>
+  <path d="M220 420 C180 300, 150 220, 120 120" stroke="#D9A441" stroke-width="1" class="bg-line" fill="none" style="animation-delay:1s"/>
+  <path d="M220 420 C360 440, 520 450, 650 460" stroke="#5C9C93" stroke-width="1" class="bg-line" fill="none" style="animation-delay:2s"/>
+</svg>
+
+<div class="content">
+  <div class="seal-wrap">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <g class="seal-ring">
+        <circle cx="60" cy="60" r="52" fill="none" stroke="#D9A441" stroke-width="1.4" stroke-dasharray="3 5"/>
+      </g>
+      <circle cx="60" cy="60" r="34" fill="none" stroke="#F4EFE4" stroke-width="1.8"/>
+      <ellipse cx="60" cy="60" rx="34" ry="11" fill="none" stroke="#F4EFE4" stroke-width="1.3"/>
+      <ellipse cx="60" cy="60" rx="12" ry="34" fill="none" stroke="#F4EFE4" stroke-width="1.3"/>
+      <line x1="26" y1="60" x2="94" y2="60" stroke="#F4EFE4" stroke-width="1.3"/>
+      <text x="60" y="67" text-anchor="middle" font-family="Satoshi" font-style="italic" font-weight="700" font-size="17" fill="#D9A441">NV</text>
+    </svg>
+  </div>
+  <div class="wordmark">NeoVista Global</div>
+  <div class="sub-tag">Exports — Hyderabad, India</div>
+
+  <div class="divider"></div>
+
+  <div class="eyebrow">Launching Soon</div>
+  <h1>Work in progress.<br>Coming soon.</h1>
+  <p class="lede">We're building the manifest — sourcing pages, certifications, and the full catalogue of spices, processed foods, and more products bound for the EU, North America, the United Kingdom, Australia, and African markets.</p>
+
+  <div class="status-row">
+    <span class="status-dot"></span>
+    <span>SITE UNDER CONSTRUCTION</span>
+  </div>
+</div>
+
+<div class="footer-mono">© 2026 NEOVISTA GLOBAL — HYDERABAD, INDIA</div>
+
+</body>
+</html>
